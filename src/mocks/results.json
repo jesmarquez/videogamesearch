@@ -1,0 +1,247 @@
+[
+  {
+    "id": 11737,
+    "cover": {
+      "id": 286788,
+      "alpha_channel": false,
+      "animated": false,
+      "game": 11737,
+      "height": 1600,
+      "image_id": "co65ac",
+      "url": "//images.igdb.com/igdb/image/upload/t_thumb/co65ac.jpg",
+      "width": 1200,
+      "checksum": "aba3fafb-d1bb-e70d-3c48-4b5ebe087478"
+    },
+    "first_release_date": 1559001600,
+    "genres": [
+      {
+        "id": 9,
+        "created_at": 1297555200,
+        "name": "Puzzle",
+        "slug": "puzzle",
+        "updated_at": 1323216000,
+        "url": "https://www.igdb.com/genres/puzzle",
+        "checksum": "616de9c3-8a00-0232-9df9-00014cfac51b"
+      },
+      {
+        "id": 13,
+        "created_at": 1297555200,
+        "name": "Simulator",
+        "slug": "simulator",
+        "updated_at": 1323216000,
+        "url": "https://www.igdb.com/genres/simulator",
+        "checksum": "9779772a-f08f-9e8e-bd26-70c9eecc34e8"
+      },
+      {
+        "id": 31,
+        "created_at": 1323561600,
+        "name": "Adventure",
+        "slug": "adventure",
+        "updated_at": 1323561600,
+        "url": "https://www.igdb.com/genres/adventure",
+        "checksum": "a6d85192-8d11-bad3-cc5c-dd89e2f94a47"
+      },
+      {
+        "id": 32,
+        "created_at": 1341360000,
+        "name": "Indie",
+        "slug": "indie",
+        "updated_at": 1341360000,
+        "url": "https://www.igdb.com/genres/indie",
+        "checksum": "2522259f-2454-ec02-5dc0-84373e0508ed"
+      }
+    ],
+    "involved_companies": [
+      {
+        "id": 144456,
+        "company": 11662,
+        "created_at": 1628277394,
+        "developer": false,
+        "game": 11737,
+        "porting": true,
+        "publisher": false,
+        "supporting": false,
+        "updated_at": 1628281750,
+        "checksum": "619c762e-db85-6377-992a-0e349a7c32c9"
+      },
+      {
+        "id": 145321,
+        "company": 11662,
+        "created_at": 1628800408,
+        "developer": false,
+        "game": 11737,
+        "porting": false,
+        "publisher": true,
+        "supporting": false,
+        "updated_at": 1628813162,
+        "checksum": "4d33359b-86eb-721c-f57e-f30c6282364b"
+      },
+      {
+        "id": 145322,
+        "company": 6209,
+        "created_at": 1628800409,
+        "developer": true,
+        "game": 11737,
+        "porting": false,
+        "publisher": false,
+        "supporting": false,
+        "updated_at": 1628813163,
+        "checksum": "9c3e21a6-4d2a-11a6-2e2a-1f0b71a755ab"
+      }
+    ],
+    "name": "Outer Wilds",
+    "rating": 90.2801123800861
+  },
+  {
+    "id": 146761,
+    "cover": {
+      "id": 181861,
+      "alpha_channel": true,
+      "animated": false,
+      "game": 146761,
+      "height": 2136,
+      "image_id": "co3wbp",
+      "url": "//images.igdb.com/igdb/image/upload/t_thumb/co3wbp.jpg",
+      "width": 1602,
+      "checksum": "42ae4754-f752-0171-2094-f150ae283161"
+    },
+    "first_release_date": 1632787200,
+    "genres": [
+      {
+        "id": 9,
+        "created_at": 1297555200,
+        "name": "Puzzle",
+        "slug": "puzzle",
+        "updated_at": 1323216000,
+        "url": "https://www.igdb.com/genres/puzzle",
+        "checksum": "616de9c3-8a00-0232-9df9-00014cfac51b"
+      },
+      {
+        "id": 13,
+        "created_at": 1297555200,
+        "name": "Simulator",
+        "slug": "simulator",
+        "updated_at": 1323216000,
+        "url": "https://www.igdb.com/genres/simulator",
+        "checksum": "9779772a-f08f-9e8e-bd26-70c9eecc34e8"
+      },
+      {
+        "id": 31,
+        "created_at": 1323561600,
+        "name": "Adventure",
+        "slug": "adventure",
+        "updated_at": 1323561600,
+        "url": "https://www.igdb.com/genres/adventure",
+        "checksum": "a6d85192-8d11-bad3-cc5c-dd89e2f94a47"
+      },
+      {
+        "id": 32,
+        "created_at": 1341360000,
+        "name": "Indie",
+        "slug": "indie",
+        "updated_at": 1341360000,
+        "url": "https://www.igdb.com/genres/indie",
+        "checksum": "2522259f-2454-ec02-5dc0-84373e0508ed"
+      }
+    ],
+    "involved_companies": [
+      {
+        "id": 143473,
+        "company": 6209,
+        "created_at": 1627587838,
+        "developer": true,
+        "game": 146761,
+        "porting": false,
+        "publisher": false,
+        "supporting": false,
+        "updated_at": 1627587843,
+        "checksum": "39974ff7-85d6-7525-b1d8-8c2aa6c517ac"
+      },
+      {
+        "id": 143474,
+        "company": 11662,
+        "created_at": 1627587838,
+        "developer": false,
+        "game": 146761,
+        "porting": false,
+        "publisher": true,
+        "supporting": false,
+        "updated_at": 1627587843,
+        "checksum": "a6ec727a-4c27-f838-9129-6d643825ebe3"
+      }
+    ],
+    "name": "Outer Wilds: Echoes of the Eye",
+    "rating": 86.05093017620719
+  },
+  {
+    "id": 173172,
+    "cover": {
+      "id": 184733,
+      "alpha_channel": true,
+      "animated": false,
+      "game": 173172,
+      "height": 1024,
+      "image_id": "co3yjh",
+      "url": "//images.igdb.com/igdb/image/upload/t_thumb/co3yjh.jpg",
+      "width": 768,
+      "checksum": "19fe136d-0d99-737b-5f7e-97c84151db5e"
+    },
+    "first_release_date": 1632787200,
+    "genres": [
+      {
+        "id": 9,
+        "created_at": 1297555200,
+        "name": "Puzzle",
+        "slug": "puzzle",
+        "updated_at": 1323216000,
+        "url": "https://www.igdb.com/genres/puzzle",
+        "checksum": "616de9c3-8a00-0232-9df9-00014cfac51b"
+      },
+      {
+        "id": 31,
+        "created_at": 1323561600,
+        "name": "Adventure",
+        "slug": "adventure",
+        "updated_at": 1323561600,
+        "url": "https://www.igdb.com/genres/adventure",
+        "checksum": "a6d85192-8d11-bad3-cc5c-dd89e2f94a47"
+      },
+      {
+        "id": 32,
+        "created_at": 1341360000,
+        "name": "Indie",
+        "slug": "indie",
+        "updated_at": 1341360000,
+        "url": "https://www.igdb.com/genres/indie",
+        "checksum": "2522259f-2454-ec02-5dc0-84373e0508ed"
+      }
+    ],
+    "involved_companies": [
+      {
+        "id": 152029,
+        "company": 6209,
+        "created_at": 1633555705,
+        "developer": true,
+        "game": 173172,
+        "porting": false,
+        "publisher": false,
+        "supporting": false,
+        "updated_at": 1633561108,
+        "checksum": "595dbf47-0079-e872-9cdd-cd5b8ca6b36a"
+      },
+      {
+        "id": 152030,
+        "company": 11662,
+        "created_at": 1633555705,
+        "developer": false,
+        "game": 173172,
+        "porting": false,
+        "publisher": true,
+        "supporting": false,
+        "updated_at": 1633561108,
+        "checksum": "7e248079-01f5-c4cf-4522-d56e1c6a3899"
+      }
+    ],
+    "name": "Outer Wilds: Archaeologist Edition"
+  }
+]
