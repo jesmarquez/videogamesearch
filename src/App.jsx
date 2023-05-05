@@ -1,10 +1,9 @@
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useGames } from './hooks'
 import './App.css'
-import results from './mocks/results.json'
-
 import { Games } from './components'
+import debounce from 'just-debounce-it'
 
 /*
   GAMES LIST
@@ -15,9 +14,14 @@ import { Games } from './components'
   API_KEY: 4287ad07
 
   Requirements:
-   - Show an input to look for a move and a search button
+   - Show an input to look for a move and a search button *
    - List movies results and show their title, year and poster *
    - Movies should be shown on a responsive grid *
+
+  Bonus requirements
+  - Avoid make the same search twice *
+  - Make search while writing on field *
+  - Avoid search countinuosly while writing(debounce) *
 
 */
 
@@ -31,10 +35,15 @@ function App() {
   const firstTimeInput = useRef(true)
   const prevInput = useRef(query)
 
+  const debouncedGetGames = useCallback(debounce((query) => getGames(query), 400), [])
+
   const handleChange = ({ target }) => {
-    if (target.value.startsWith(" "))
+
+    const newQuery = target.value
+    if (newQuery.startsWith(" "))
       return
-    updateQuery(target.value)
+    debouncedGetGames(newQuery)
+    updateQuery(newQuery)
   }
   //Validates input change values
   useEffect(() => {
