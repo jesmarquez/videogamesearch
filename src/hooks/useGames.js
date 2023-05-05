@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 export const useGames = ({ query }) => {
 
@@ -8,7 +8,7 @@ export const useGames = ({ query }) => {
   const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
 
 
-  const getGames = (query) => {
+  const getGames = useCallback((query) => {
     if(query === '')
       return
 
@@ -40,7 +40,11 @@ export const useGames = ({ query }) => {
         })
         .finally(() => setIsLoading(false))  
 
-  }
+  }, [])
+
+  useEffect(() => {
+    console.log('running get Games')
+  }, [getGames]);
 
   return {
     games,

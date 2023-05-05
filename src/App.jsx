@@ -1,9 +1,7 @@
 
-import { useState, useEffect, useRef, useCallback } from 'react'
-import { useGames } from './hooks'
+import { useForm, useGames } from './hooks'
 import './App.css'
-import { Games } from './components'
-import debounce from 'just-debounce-it'
+import { Games, Form } from './components'
 
 /*
   GAMES LIST
@@ -20,72 +18,26 @@ import debounce from 'just-debounce-it'
 
   Bonus requirements
   - Avoid make the same search twice *
-  - Make search while writing on field *
+  - Make search automatically while writing on field *
   - Avoid search countinuosly while writing(debounce) *
 
 */
 
 function App() {
 
-  // const games = results
-  const [query, updateQuery] = useState('')
-  const [inputError, setInputError] = useState(null)
+
+  const { query, inputError, handleChange, handleSubmit } = useForm()
   const { getGames, games, isLoading } = useGames({ query })
-
-  const firstTimeInput = useRef(true)
-  const prevInput = useRef(query)
-
-  const debouncedGetGames = useCallback(debounce((query) => getGames(query), 400), [])
-
-  const handleChange = ({ target }) => {
-
-    const newQuery = target.value
-    if (newQuery.startsWith(" "))
-      return
-    debouncedGetGames(newQuery)
-    updateQuery(newQuery)
-  }
-  //Validates input change values
-  useEffect(() => {
-
-    if (firstTimeInput.current) {
-      firstTimeInput.current = query === ""
-      return
-    }
-
-    if (query === "") {
-      setInputError('Field must have something to look for')
-      return
-    }
-    setInputError(null)
-  }, [query]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (prevInput.current === query)
-      return
-    prevInput.current = query
-    getGames(query)
-  }
 
   return (
     <div id="page">
       <header>
         <h1>VideoGames Search App</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="text"
-            style={{ border: `1px solid ${inputError ? 'red' : 'transparent'}`, }}
-            onChange={handleChange}
-            value={query} />
-          <button type='submit'>SEARCH</button>
-        </form>
-        <div className="input-error-box">
-          {
-            inputError
-              ? <small>{inputError}</small>
-              : null
-          }
-        </div>
+        <Form query={query}
+          error={inputError}
+          onSubmit={handleSubmit}
+          onChange={handleChange}
+          callbackFn={getGames} />
       </header>
       <main>
         {
