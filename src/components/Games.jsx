@@ -3,11 +3,11 @@ function List({ items }) {
     <ul className='list'>
       {
         items.map(
-          ({ name, id, cover, first_release_date }) => {
+          ({ name, id, cover, year }) => {
             return (<li className='list-item' key={id}>
-              <img src={cover?.url} />
+              <img src={cover ? cover : 'https://raw.githubusercontent.com/koehlersimon/fallback/master/Resources/Public/Images/placeholder.jpg'} />
               <h3>{name}</h3>
-              <small>{first_release_date}</small>
+              <small>{year}</small>
             </li>)
           })
       }
