@@ -4,8 +4,8 @@ const BASE_URL = 'https://api.igdb.com/v4/games?search='
 const query_params = 'fields=name, genres.*, first_release_date, involved_companies.*, rating, cover.*'
 
 const IGDBHeaders = new Headers({
-  "Client-ID": "vbcza6ewzcdmx1b6gdf0urk3z52gyr",
-  "Authorization": "Bearer lkmfxobum33u4xlgxq4oq80c1me3q1",
+  "Client-ID": import.meta.env.VITE_IGDB_CLIENT_ID,
+  "Authorization": import.meta.env.VITE_IGDB_AUTH_TOKEN,
   "Content-type" : "application/json",
 })
 
