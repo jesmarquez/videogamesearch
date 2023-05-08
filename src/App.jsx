@@ -1,7 +1,7 @@
 
 import { useForm, useGames } from './hooks'
 import './App.css'
-import { Games, Form } from './components'
+import { Games, Form, Loader } from './components'
 
 /*
   GAMES LIST
@@ -23,10 +23,6 @@ import { Games, Form } from './components'
 
 */
 
-// Todo: get larger images at cover img
-// Todo: resolve  proxy issue: process.env isLocalHost? o crear un proxy local en node
-// Todo: resolve Bearer Token exposition(with local env variable maybe?)
-// Todo: show useGames error on display maybe
 // Todo: improve styles (add main logo image, etc..)
 // Todo: Deploy on netlify
 
@@ -34,7 +30,7 @@ function App() {
 
 
   const { query, inputError, handleChange, handleSubmit } = useForm()
-  const { getGames, games, isLoading } = useGames({ query })
+  const { getGames, games, isLoading, gameError } = useGames({ query })
 
   return (
     <div id="page">
@@ -47,11 +43,7 @@ function App() {
           callbackFn={getGames} />
       </header>
       <main>
-        {
-          !isLoading
-            ? <Games games={games} />
-            : <p className='text-center'>Loading...</p>
-        }
+        {<Games games={games} error={gameError} onLoading={isLoading} />}
       </main>
     </div>
   )

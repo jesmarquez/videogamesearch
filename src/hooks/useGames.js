@@ -5,7 +5,7 @@ export const useGames = ({ query }) => {
 
   const [games, setGames] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [gameError, setError] = useState(null)
 
   const getGames = useCallback((query) => {
     if(query === '')
@@ -16,7 +16,7 @@ export const useGames = ({ query }) => {
       setError(null)
 
       fetchGames(query)
-        .then( setGames )
+        .then(setGames)
         .catch( setError )
         .finally(()=> setIsLoading(false))
 
@@ -28,7 +28,7 @@ export const useGames = ({ query }) => {
 
   return {
     games,
-    error,
+    gameError,
     getGames,
     isLoading
   }

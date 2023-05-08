@@ -5,10 +5,12 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding: 1em;
 }
 
 main{
   width: 100%;
+  padding: 4em 0em;
 }
 
 .list{
@@ -16,16 +18,23 @@ main{
   width: 100%;
   display: grid;
   grid-template-columns: repeat( auto-fill, minmax(200px, 1fr));
-  gap: 32px;
+  gap: 4em;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  margin-top: 4em;
+  margin-top: 1em;
+}
+.list-item{
+  display: flex;
+  flex-direction: column;
 }
 
 h3{
-  margin-bottom: 0 !important;
+  margin-bottom: 0.4em !important;
 }
 .list-item img{
   border-radius: 0.6em;
+
 }
 
 form{
@@ -40,4 +49,14 @@ form{
 
 .text-center{
   text-align: center;
+}
+.text-muted{
+  color: rgb(150, 150, 150);
+}
+.mt-1{
+  margin-top: 0.2em;
+}
+
+.small-text{
+  font-size: 0.76rem;
 }

@@ -9,7 +9,7 @@ export const useForm = () => {
    const firstTimeInput = useRef(true)
    const prevInput = useRef(query)
 
-   const debouncedGetGames = useCallback(debounce((query, callback) => callback(query), 400), [])
+   const debouncedGetGames = useCallback(debounce((query, callback) => callback(query), 900), [])
 
 
    const handleChange = (e, callback) => {
@@ -17,6 +17,7 @@ export const useForm = () => {
     const newQuery = e.target.value
     if (newQuery.startsWith(" "))
       return
+          
     debouncedGetGames(newQuery, callback)
     updateQuery(newQuery)
   }
