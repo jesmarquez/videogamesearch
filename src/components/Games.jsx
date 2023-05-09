@@ -1,4 +1,5 @@
-import { Loader } from "./Loader"
+import { Loader, NoResults } from "./"
+
 
 function List({ items }) {
   return (
@@ -18,9 +19,18 @@ function List({ items }) {
   )
 }
 
-export function Games({ games, error, onLoading }) {
+function WaitingInput() {
+  return (
+    <p className="text-center font-pixelated text-green animate-flicker">
+      Waiting for you game search...
+    </p>
+  )
+}
+
+export function Games({ games, error, onLoading, query, firstTime }) {
 
   const hasGames = games?.length > 0
+
 
   if (error)
     return <p className="input-error-box">{error}</p>
@@ -28,9 +38,12 @@ export function Games({ games, error, onLoading }) {
   if (onLoading)
     return <Loader />
 
+  if (firstTime)
+    return <WaitingInput />
+
   return (
     hasGames
       ? <List items={games} />
-      : <p className="text-center">No results :/</p >
+      : <NoResults query={query} />
   )
 }

@@ -5,11 +5,15 @@ export const useForm = () => {
 
    const [query, updateQuery] = useState('')
    const [inputError, setInputError] = useState(null)
+   const [firstTime, setFirstTime] = useState(true)
 
    const firstTimeInput = useRef(true)
    const prevInput = useRef(query)
 
-   const debouncedGetGames = useCallback(debounce((query, callback) => callback(query), 900), [])
+   const debouncedGetGames = useCallback(debounce((query, callback) => {
+    setFirstTime(firstTimeInput.current)
+    callback(query)
+  }, 900), [])
 
 
    const handleChange = (e, callback) => {
@@ -26,6 +30,7 @@ export const useForm = () => {
 
     if (firstTimeInput.current) {
       firstTimeInput.current = query === ""
+      
       return
     }
 
@@ -50,6 +55,7 @@ export const useForm = () => {
    query, 
    inputError,
    handleChange,
-   handleSubmit 
+   handleSubmit, 
+   firstTime 
   }
 }

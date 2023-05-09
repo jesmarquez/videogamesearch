@@ -1,7 +1,8 @@
 
 import { useForm, useGames } from './hooks'
 import './App.css'
-import { Games, Form, Loader } from './components'
+import { Games, Form } from './components'
+import appLogo from './assets/game-logo.svg'
 
 /*
   GAMES LIST
@@ -23,19 +24,17 @@ import { Games, Form, Loader } from './components'
 
 */
 
-// Todo: improve styles (add main logo image, etc..)
-// Todo: Deploy on netlify
-
 function App() {
 
 
-  const { query, inputError, handleChange, handleSubmit } = useForm()
+  const { query, inputError, handleChange, handleSubmit, firstTime } = useForm()
   const { getGames, games, isLoading, gameError } = useGames({ query })
 
   return (
     <div id="page">
       <header>
-        <h1>VideoGames Search App</h1>
+        <img src={appLogo} width="160" alt="App Logo" className='mx-auto' />
+        <h1 className='text-center mt-0 app-title font-pixelated'>Search-a-Game</h1>
         <Form query={query}
           error={inputError}
           onSubmit={handleSubmit}
@@ -43,7 +42,13 @@ function App() {
           callbackFn={getGames} />
       </header>
       <main>
-        {<Games games={games} error={gameError} onLoading={isLoading} />}
+        {
+          <Games games={games}
+            error={gameError}
+            onLoading={isLoading}
+            query={query}
+            firstTime={firstTime} />
+        }
       </main>
     </div>
   )
