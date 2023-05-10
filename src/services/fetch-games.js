@@ -8,6 +8,7 @@ const IGDBHeaders = new Headers({
   "Client-ID": import.meta.env.VITE_IGDB_CLIENT_ID,
   "Authorization": import.meta.env.VITE_IGDB_AUTH_TOKEN,
   "Content-type" : "application/json",
+  "Access-Control-Allow-Origin": "*"
 })
 
 const fetchOpts = {
