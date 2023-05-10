@@ -1,6 +1,9 @@
-var fetch = require('node-fetch')
-exports.handler = async (event, context) => {
+import fetch from 'node-fetch'
+
+export const handler = async (event, context) => {
+  try{
   var url = event.path
+
   url = url.split('.netlify/functions/cors/')[1]
   url = decodeURIComponent(url)
   url = new URL(url)
@@ -13,44 +16,50 @@ exports.handler = async (event, context) => {
   var useragent = event.headers["user-agent"] || ""
   
   // todo: check if it works
-  var clientid = import.meta.env.VITE_IGDB_CLIENT_ID || ""
-  var authorization =  import.meta.env.VITE_IGDB_AUTH_TOKEN || ""
+  /*var clientid = import.meta.env.VITE_IGDB_CLIENT_ID || ""
+  var authorization =  import.meta.env.VITE_IGDB_AUTH_TOKEN || "" */
   
   var header_to_send = {
     "Cookie" : cookie_string,
     "User-Agent" : useragent,
-    "Client-ID": clientid,
-    "Authorization": authorization,
-    "Content-type" : "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Accept" : "*/*",
-    "Host" : url.host
+    "Client-ID": "y01gh4f3nmcgy8bfwptgcqx3hus7iy",
+    "Authorization": "Bearer iqq4sbh2lftf6ml6oj7pnwtnqm3yb2", 
+    "content-type" : "application/json",
+    "accept" : "*/*",
+    "host" : url.host
   }
   var options = {
     method: event.httpMethod.toUpperCase(),
     headers: header_to_send,
-    body: event.body
+    body: JSON.stringify(event.body)
   }
   if(event.httpMethod.toUpperCase() == "GET" || event.httpMethod.toUpperCase() == "HEAD" )
     delete options.body
     
   var response = await fetch(url, options)
   var response_text = await response.text()
+  //var response_buffer = await response.buffer()
+  //var base64_encoded = response_buffer.toString("base64")
   var headers = response.headers.raw()
-  
   var cookie_header = null
+  
   if(headers["set-cookie"]) 
     cookie_header = headers["set-cookie"]
   
   return {
-    statusCode: 200,
+    statusCode: response.status,
     body: response_text,
+    //body: base64_encoded,
+    //isBase64Encoded : true,
     headers: {
-      "Content-type": String(header["content-type"]) || "text/plain",
+      "Content-type": String(headers["content-type"]) || "text/plain",
       multiValueHeaders: {
         "set-cookie": cookie_header || []
         
       }
     }
   }
+}catch(e){
+  console.log(e)
+}
 }
