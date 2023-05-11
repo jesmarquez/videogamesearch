@@ -1,19 +1,25 @@
 //import results from '../mocks/results.json'
 import { gameMapper } from "../mappers/game.mapper"
 
-const PROXY_URL = !import.meta.env.PROD ? 'https://cors-anywhere.herokuapp.com/' : ''
+const EXTERNAL_PROXY_URL = !import.meta.env.PROD ? 'https://cors-anywhere.herokuapp.com/' : ''
+//local proxy configuration provided by netlify server!
+const NETLIFY_PROXY_URL = '.netlify/functions/cors/'
 const BASE_URL = 'https://api.igdb.com/v4/games?search='
+
+/*
+Headers are no required since NETLIFY functions are providing it
 
 const IGDBHeaders = new Headers({
   "Client-ID": import.meta.env.VITE_IGDB_CLIENT_ID,
   "Authorization": import.meta.env.VITE_IGDB_AUTH_TOKEN,
   "Content-type" : "application/json",
   "Access-Control-Allow-Origin": "*"
-})
+}) 
+*/
 
 const fetchOpts = {
   method: "POST",
-  headers: IGDBHeaders,
+  //headers: IGDBHeaders,
   mode: "cors"
 }
 
@@ -26,7 +32,7 @@ export const fetchGames = async (query) => {
   
   try{
     const res = await fetch(
-      `${PROXY_URL + BASE_URL + query}&${query_params}`,
+      `${ NETLIFY_PROXY_URL + BASE_URL + query}&${query_params}`,
        fetchOpts)
        
     if(!res.ok){
