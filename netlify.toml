@@ -1,6 +1,6 @@
 [build]
   functions = "netlify_functions"
-  command = "npm run vite build && netlify deploy"
+  command = "npm run vite build"
   publish = "dist"
   
 [dev]
