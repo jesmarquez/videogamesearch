@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-exports.handler = async function(event, context){
+export const handler = async (event, context) => {
   try{
   var url = event.path
 
