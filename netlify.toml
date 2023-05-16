@@ -1,9 +1,15 @@
 [build]
-  functions = "netlify_functions"
-  command = "npm run build"
-  publish = "dist"
+  publish = "dist/"
   
 [dev]
-  command = "npm run dev"
-  publish = "dist"
+  publish = "dist/"
+
   
+# Deploy Preview context: all deploys generated from
+# a pull/merge request will inherit these settings.
+[context.deploy-preview]
+  publish = "dist/"
+  
+  
+[functions]
+  directory = "netlify_functions/"
