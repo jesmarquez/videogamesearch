@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-export const handler = async (event, context) => {
+exports.handler = async function(event, context){
   try{
   var url = event.path
 
@@ -37,7 +37,7 @@ export const handler = async (event, context) => {
     delete options.body
     
   var response = await fetch(url, options)
-  var response_text = await response.text()
+  var response_text = await response.json()
   //var response_buffer = await response.buffer()
   //var base64_encoded = response_buffer.toString("base64")
   var headers = response.headers.raw()
@@ -48,7 +48,7 @@ export const handler = async (event, context) => {
   
   return {
     statusCode: response.status,
-    body: response_text,
+    body: JSON.stringify(response_text),
     //body: base64_encoded,
     //isBase64Encoded : true,
     headers: {
@@ -61,7 +61,10 @@ export const handler = async (event, context) => {
       }
     }
   }
-}catch(e){
-  console.log(e)
+}catch(error){
+  return {
+    statusCode: 500,
+    error: JSON.stringify(error)
+  }
 }
 }

@@ -11,5 +11,5 @@
   
 # DONT SET DIRECTORY if you dont want to change the default netlify
 # folder on deploy (netlify/functions = .netlify/functions endpoint)
-[functions]
+# [functions]
   # directory = "netlify/functions/"
