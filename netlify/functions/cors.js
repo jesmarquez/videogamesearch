@@ -4,7 +4,7 @@ export const handler = async (event, context) => {
   try{
   var url = event.path
 
-  url = url.split('/.netlify/functions/cors/')[1]
+  url = url.split('.netlify/functions/cors/')[1]
   url = decodeURIComponent(url)
   url = new URL(url)
   for(let i in event.queryStringParameters){

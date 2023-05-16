@@ -3,7 +3,10 @@ import { gameMapper } from "../mappers/game.mapper"
 
 const EXTERNAL_PROXY_URL = !import.meta.env.PROD ? 'https://cors-anywhere.herokuapp.com/' : ''
 //local proxy configuration provided by netlify server!
+//This variable above takes netlify/functions/cors.js file to deploy a synchronous function !!
+//More info: https://docs.netlify.com/functions/create/?fn-language=js
 const NETLIFY_PROXY_URL = '/.netlify/functions/cors/'
+
 const BASE_URL = 'https://api.igdb.com/v4/games?search='
 
 /*
