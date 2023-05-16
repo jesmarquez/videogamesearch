@@ -9,7 +9,7 @@
 [context.deploy-preview]
   publish = "dist/"
   
-# DONT SET DIRECTORY if you dont want to change the default netlify
+# DONT SET DIRECTORY PARAMETER if you dont want to change the default netlify
 # folder on deploy (netlify/functions = .netlify/functions endpoint)
-# [functions]
-  # directory = "netlify/functions/"
+[functions]
+  node_bundler = "esbuild"
