@@ -7,12 +7,11 @@ export const handler = async (event, context) => {
   url = url.split('.netlify/functions/cors/')[1]
   url = decodeURIComponent(url)
   url = new URL(url)
-  
   for(let i in event.queryStringParameters){
     url.searchParams.append(i, event.queryStringParameters[i])
   }
   
-  var cookie_string = event.headers.cookie || ""
+  var cookie_string = event.headers["cookie"] || ""
   var useragent = event.headers["user-agent"] || ""
   
   // todo: check if it works
@@ -20,13 +19,14 @@ export const handler = async (event, context) => {
   var authorization =  import.meta.env.VITE_IGDB_AUTH_TOKEN || "" */
   
   var header_to_send = {
+    
     "Cookie" : cookie_string,
     "User-Agent" : useragent,
     "Client-ID": "y01gh4f3nmcgy8bfwptgcqx3hus7iy",
     "Authorization": "Bearer iqq4sbh2lftf6ml6oj7pnwtnqm3yb2", 
-    "content-type" : "application/json",
-    "accept" : "*/*",
-    "host" : url.host
+    "Content-Type" : "application/json",
+    "Accept" : "*/*",
+    "Host" : url.host
   }
   var options = {
     method: event.httpMethod.toUpperCase(),
@@ -52,7 +52,9 @@ export const handler = async (event, context) => {
     //body: base64_encoded,
     //isBase64Encoded : true,
     headers: {
-      "Content-type": String(headers["content-type"]) || "text/plain",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST",
+      "Content-Type": String(headers["content-type"]) || "text/plain",
       multiValueHeaders: {
         "set-cookie": cookie_header || []
         
