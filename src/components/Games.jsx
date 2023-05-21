@@ -28,7 +28,8 @@ function WaitingInput() {
 }
 
 export function Games({ games, error, onLoading, query, firstTime }) {
-
+  console.log(error)
+  
   const hasGames = games?.length > 0
 
 
