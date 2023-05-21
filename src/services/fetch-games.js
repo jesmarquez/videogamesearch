@@ -47,6 +47,7 @@ export const fetchGames = async (query) => {
     //console.log(games)
     return games
   }catch(e){
+    console.log('catch err:', e)
     return e
   }
 }
